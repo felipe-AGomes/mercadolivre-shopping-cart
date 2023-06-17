@@ -5,6 +5,7 @@
 	flex-direction: column;
 	gap: 10px;
 
+	position: relative;
 	width: 100%;
 	max-width: 340px;
 	padding: 10px;
@@ -21,6 +22,8 @@
 	justify-content: center;
 	flex-direction: column;
 	gap: 10px;
+
+	color: var(--fontColor);
 }
 
 .product__card .description__contain p {
@@ -31,4 +34,19 @@
 .product__card .description__contain h2 {
 	font-size: 1rem;
 	font-weight: 400;
+}
+
+.product__card .cartIcon {
+	display: none;
+	align-items: center;
+	justify-content: center;
+
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	color: var(--red);
+}
+
+.product__card:hover .cartIcon {
+	display: flex;
 }

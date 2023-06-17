@@ -1,8 +1,8 @@
 import { HiOutlineSearch } from 'react-icons/hi';
 
-import S from './Header.module.css';
+import S from './HeaderPage.module.css';
 
-export default function Header() {
+export default function HeaderPage() {
 	return (
 		<header className={S.header__contain}>
 			<form className={S.form__contain}>

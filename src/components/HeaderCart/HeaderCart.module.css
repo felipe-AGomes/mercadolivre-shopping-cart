@@ -1,0 +1,26 @@
+.header__contain {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 10px;
+	width: 100%;
+	height: 50px;
+	background: var(--mostarda);
+	border-top: solid 1px var(--blue);
+	color: var(--fontColor);
+}
+
+.header__contain h3 {
+	font-size: 1.43rem;
+	font-weight: 400;
+}
+
+.header__contain .closeIcon__contain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}

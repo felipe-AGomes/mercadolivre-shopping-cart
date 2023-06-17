@@ -13,8 +13,7 @@
 	margin: 0;
 }
 
-body,
-main {
+body{
 	width: 100%;
 	min-height: 100vh;
 }
@@ -23,8 +22,10 @@ main {
 	display: flex;
 	align-items: center;
 	justify-content: flex-start;
-  flex-direction: column;
+	flex-direction: column;
 	gap: 40px;
 
+	min-height: calc(100vh - 100px);
+	position: relative;
 	padding: 60px 10px;
 }

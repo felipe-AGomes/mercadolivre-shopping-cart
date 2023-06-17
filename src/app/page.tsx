@@ -1,16 +1,27 @@
 /* eslint-disable @next/next/no-img-element */
+import Cart from '@/components/Cart';
 import CartFloat from '@/components/CartFloat';
 import GridProducts from '@/components/GridProducts';
-// import S from './page.module.css';
-import Header from '@/components/Header';
+import HeaderPage from '@/components/HeaderPage';
 
 export default function Home() {
+	const cart = true;
 	return (
 		<>
-			<Header />
-			<main>
+			<HeaderPage />
+			<main
+				style={
+					cart
+						? {
+								height: 'calc(100vh - 200px)',
+								overflow: 'hidden',
+						  }
+						: {}
+				}
+			>
 				<GridProducts />
 				<CartFloat />
+				{cart && <Cart />}
 			</main>
 		</>
 	);
