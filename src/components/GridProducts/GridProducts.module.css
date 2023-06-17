@@ -1,0 +1,8 @@
+.products__contain {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	gap: 40px;
+	
+	 width: 100%;
+ }
