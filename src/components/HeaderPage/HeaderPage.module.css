@@ -17,13 +17,14 @@
 	flex-grow: 1;
 
 	height: 50px;
-  max-width: 280px;
+	max-width: 280px;
 	width: calc(100% - 60px);
 	border: solid 1px var(--blue);
 	background: var(--background);
 	border-radius: 10px;
 	font-size: 1.05rem;
 	padding: 0 20px;
+	outline: none;
 }
 
 .header__contain .form__contain button {
