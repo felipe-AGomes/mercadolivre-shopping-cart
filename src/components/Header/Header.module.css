@@ -1,0 +1,40 @@
+.header__contain {
+	height: 100px;
+	width: 100%;
+	padding: 25px 10px;
+	background: var(--mostarda);
+}
+
+.header__contain .form__contain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 10px;
+	width: 100%;
+}
+
+.header__contain .form__contain input {
+	flex-grow: 1;
+
+	height: 50px;
+  max-width: 280px;
+	width: calc(100% - 60px);
+	border: solid 1px var(--blue);
+	background: var(--background);
+	border-radius: 10px;
+	font-size: 1.05rem;
+	padding: 0 20px;
+}
+
+.header__contain .form__contain button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+
+	height: 50px;
+	width: 50px;
+	border-radius: 10px;
+	border: solid 1px var(--blue);
+	color: var(--blue);
+}
