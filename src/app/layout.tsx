@@ -1,3 +1,4 @@
+import AppContextProvider from '@/context/AppContext';
 import './globals.css';
 import { Roboto } from '@next/font/google';
 
@@ -13,7 +14,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang='en'>
-			<body className={roboto.className}>{children}</body>
+			<AppContextProvider>
+				<body className={roboto.className}>{children}</body>
+			</AppContextProvider>
 		</html>
 	);
 }

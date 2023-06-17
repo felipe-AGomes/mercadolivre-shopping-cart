@@ -1,11 +1,14 @@
+'use client';
 /* eslint-disable @next/next/no-img-element */
 import Cart from '@/components/Cart';
 import CartFloat from '@/components/CartFloat';
 import GridProducts from '@/components/GridProducts';
 import HeaderPage from '@/components/HeaderPage';
+import useAppContext from '@/hooks/useAppContext';
 
 export default function Home() {
-	const cart = true;
+	const { cart } = useAppContext();
+
 	return (
 		<>
 			<HeaderPage />

@@ -1,8 +1,12 @@
+'use client'
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
 import S from './HeaderCart.module.css';
+import useAppContext from '@/hooks/useAppContext';
 
 export default function HeaderCart() {
+	const { setCart } = useAppContext();
+
 	return (
 		<header className={S.header__contain}>
 			<h3>Carrinho de compras</h3>
@@ -10,6 +14,7 @@ export default function HeaderCart() {
 				<AiOutlineCloseCircle
 					size={28}
 					style={{ cursor: 'pointer' }}
+					onClick={() => setCart(false)}
 				/>
 			</div>
 		</header>
