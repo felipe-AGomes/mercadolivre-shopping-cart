@@ -1,6 +1,8 @@
 import { HiOutlineSearch } from 'react-icons/hi';
 
 import S from './HeaderPage.module.css';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
+import CartNumber from '../CartNumber';
 
 export default function HeaderPage() {
 	return (
@@ -14,6 +16,18 @@ export default function HeaderPage() {
 					<HiOutlineSearch size={28} />
 				</button>
 			</form>
+			<div className={`${S.cartIcon__contain}`}>
+				<AiOutlineShoppingCart size={28} />
+				<CartNumber
+					style={{
+						background: 'var(--orange)',
+						top: '5px',
+						left: '5px',
+						width: '15px',
+						height: '15px',
+					}}
+				/>
+			</div>
 		</header>
 	);
 }

@@ -1,8 +1,9 @@
-'use client'
+'use client';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 import S from './CartFloat.module.css';
 import useAppContext from '@/hooks/useAppContext';
+import CartNumber from '../CartNumber';
 
 export default function CartFloat() {
 	const { setCart } = useAppContext();
@@ -15,9 +16,7 @@ export default function CartFloat() {
 					onClick={() => setCart(true)}
 				/>
 			</div>
-			<div className={S.cartNumber}>
-				<p>5</p>
-			</div>
+			<CartNumber style={{ background: 'var(--blue)' }} />
 		</div>
 	);
 }

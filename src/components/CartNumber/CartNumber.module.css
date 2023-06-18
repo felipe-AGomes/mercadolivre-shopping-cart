@@ -1,0 +1,15 @@
+.cartNumber {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: absolute;
+	text-align: center;
+	bottom: 0;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	font-size: 0.7rem;
+	border-radius: 50%;
+	color: var(--background);
+}

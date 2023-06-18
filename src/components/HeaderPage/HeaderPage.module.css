@@ -1,4 +1,8 @@
 .header__contain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	height: 100px;
 	width: 100%;
 	padding: 25px 10px;
@@ -10,7 +14,6 @@
 	align-items: center;
 	justify-content: center;
 	gap: 10px;
-	width: 100%;
 }
 
 .header__contain .form__contain input {
@@ -38,4 +41,33 @@
 	border-radius: 10px;
 	border: solid 1px var(--blue);
 	color: var(--blue);
+}
+
+.header__contain .cartIcon__contain {
+	display: none;
+	align-items: center;
+	justify-content: center;
+
+	position: relative;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: var(--blue);
+}
+
+.header__contain .cartIcon__contain.active {
+	background: var(--background);
+	border: solid 1px var(--blue);
+}
+
+@media (min-width: 700px) {
+	.header__contain .cartIcon__contain {
+		display: flex;
+	}
+
+	.header__contain {
+		justify-content: space-between;
+
+		padding: 25px 40px;
+	}
 }
