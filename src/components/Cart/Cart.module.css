@@ -1,6 +1,6 @@
 .cart__contain {
-	position: absolute;
-	top: 0;
+	position: fixed;
+	top: 100px;
 	left: 0;
 	width: 100%;
 	height: calc(100vh - 100px);

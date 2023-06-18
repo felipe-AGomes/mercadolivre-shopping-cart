@@ -5,23 +5,32 @@ import CartFloat from '@/components/CartFloat';
 import GridProducts from '@/components/GridProducts';
 import HeaderPage from '@/components/HeaderPage';
 import useAppContext from '@/hooks/useAppContext';
+import { useEffect } from 'react';
 
 export default function Home() {
-	const { cart } = useAppContext();
+	const { cart, windowWIdth, setWindowWidth } = useAppContext();
+
+	useEffect(() => {
+		window.addEventListener('resize', () => {
+			setWindowWidth(window.innerWidth);
+		});
+	});
+
+	console.log(windowWIdth);
+	const cartAndWidthLess700 = cart && windowWIdth < 700;
 
 	return (
 		<>
 			<HeaderPage />
 			<main
 				style={
-					cart
+					cartAndWidthLess700
 						? {
 								height: 'calc(100vh - 200px)',
 								overflow: 'hidden',
 						  }
 						: {}
 				}
-				// TODO: Remover o overflow hidden quando a tela foi igual ou maior que 700px
 			>
 				<GridProducts />
 				<CartFloat />
