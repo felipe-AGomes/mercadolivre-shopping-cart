@@ -1,5 +1,6 @@
 'use client';
 
+import { ProductProps } from '@/@types';
 import { createContext, useState } from 'react';
 
 type Props = {
@@ -7,25 +8,46 @@ type Props = {
 };
 
 type AppContextProps = {
-	cart: boolean;
+	cartItems: ProductProps[] | [];
+	cartIsOpen: boolean;
 	windowWIdth: number;
+	products: ProductProps[] | [];
+	setCartItems: (newValue: ProductProps[] | []) => void;
+	setProducts: (newValue: ProductProps[] | []) => void;
 	setWindowWidth: (newValue: number) => void;
-	setCart: (newValue: boolean) => void;
+	setCartIsOpen: (newValue: boolean) => void;
 };
 
 export const AppContext = createContext<AppContextProps>({
-	cart: false,
+	cartIsOpen: false,
 	windowWIdth: 0,
-	setCart() {},
+	products: [],
+	cartItems: [],
+	setCartItems() {},
+	setProducts() {},
+	setCartIsOpen() {},
 	setWindowWidth() {},
 });
 
 export default function AppContextProvider({ children }: Props) {
-	const [cart, setCart] = useState(false);
+	const [cartIsOpen, setCartIsOpen] = useState(false);
 	const [windowWIdth, setWindowWidth] = useState<number>(0);
+	const [products, setProducts] = useState<ProductProps[] | []>([]);
+	const [cartItems, setCartItems] = useState<ProductProps[] | []>([]);
 
 	return (
-		<AppContext.Provider value={{ cart, windowWIdth, setCart, setWindowWidth }}>
+		<AppContext.Provider
+			value={{
+				cartItems,
+				cartIsOpen,
+				windowWIdth,
+				products,
+				setCartItems,
+				setCartIsOpen,
+				setWindowWidth,
+				setProducts,
+			}}
+		>
 			{children}
 		</AppContext.Provider>
 	);

@@ -5,7 +5,7 @@ import S from './CartHeader.module.css';
 import useAppContext from '@/hooks/useAppContext';
 
 export default function CartHeader() {
-	const { setCart } = useAppContext();
+	const { setCartIsOpen } = useAppContext();
 
 	return (
 		<header className={S.header__contain}>
@@ -14,7 +14,7 @@ export default function CartHeader() {
 				<AiOutlineCloseCircle
 					size={28}
 					style={{ cursor: 'pointer' }}
-					onClick={() => setCart(false)}
+					onClick={() => setCartIsOpen(false)}
 				/>
 			</div>
 		</header>

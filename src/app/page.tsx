@@ -8,7 +8,7 @@ import useAppContext from '@/hooks/useAppContext';
 import { useEffect } from 'react';
 
 export default function Home() {
-	const { cart, windowWIdth, setWindowWidth } = useAppContext();
+	const { cartIsOpen, windowWIdth, setWindowWidth } = useAppContext();
 
 	useEffect(() => {
 		window.addEventListener('resize', () => {
@@ -16,8 +16,7 @@ export default function Home() {
 		});
 	});
 
-	console.log(windowWIdth);
-	const cartAndWidthLess700 = cart && windowWIdth < 700;
+	const cartAndWidthLess700 = cartIsOpen && windowWIdth < 700;
 
 	return (
 		<>
@@ -34,7 +33,7 @@ export default function Home() {
 			>
 				<GridProducts />
 				<CartFloat />
-				<Cart className={cart ? 'active' : ''} />
+				<Cart className={cartIsOpen ? 'active' : ''} />
 			</main>
 		</>
 	);

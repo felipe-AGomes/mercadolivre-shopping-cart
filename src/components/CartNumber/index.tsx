@@ -1,3 +1,4 @@
+import useAppContext from '@/hooks/useAppContext';
 import S from './CartNumber.module.css';
 
 type Props = {
@@ -5,12 +6,14 @@ type Props = {
 };
 
 export default function CartNumber({ style }: Props) {
+	const { cartItems } = useAppContext();
+
 	return (
 		<div
 			style={{ ...style }}
 			className={S.cartNumber}
 		>
-			<p>5</p>
+			<p>{cartItems.length}</p>
 		</div>
 	);
 }
