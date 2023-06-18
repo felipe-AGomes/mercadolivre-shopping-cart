@@ -28,6 +28,7 @@ export default function HeaderPage() {
 			>
 				<input
 					type='search'
+					autoComplete={'off'}
 					placeholder='Pesquisar...'
 					{...register('query')}
 				/>
