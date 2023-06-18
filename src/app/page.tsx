@@ -21,6 +21,7 @@ export default function Home() {
 						  }
 						: {}
 				}
+				// TODO: Remover o overflow hidden quando a tela foi igual ou maior que 700px
 			>
 				<GridProducts />
 				<CartFloat />

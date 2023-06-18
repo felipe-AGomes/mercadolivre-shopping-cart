@@ -37,7 +37,7 @@
 }
 
 .product__card .cartIcon {
-	display: none;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 
@@ -45,8 +45,4 @@
 	top: 20px;
 	right: 20px;
 	color: var(--red);
-}
-
-.product__card:hover .cartIcon {
-	display: flex;
 }

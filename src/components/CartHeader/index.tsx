@@ -1,10 +1,10 @@
-'use client'
+'use client';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-import S from './HeaderCart.module.css';
+import S from './CartHeader.module.css';
 import useAppContext from '@/hooks/useAppContext';
 
-export default function HeaderCart() {
+export default function CartHeader() {
 	const { setCart } = useAppContext();
 
 	return (

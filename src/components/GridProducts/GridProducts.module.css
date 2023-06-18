@@ -3,6 +3,18 @@
 	align-items: center;
 	flex-direction: column;
 	gap: 40px;
-	
-	 width: 100%;
- }
+
+	width: 100%;
+}
+
+@media (min-width: 700px) {
+	.products__contain {
+		display: grid;
+		align-items: center;
+		justify-content: center;
+		row-gap: 40px;
+		column-gap: 20px;
+
+		grid-template-columns: repeat(auto-fill, 300px);
+	}
+}

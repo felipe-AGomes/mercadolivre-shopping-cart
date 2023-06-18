@@ -7,3 +7,12 @@
 	background: var(--background);
 	z-index: 2;
 }
+
+@media (min-width: 700px) {
+	.cart__contain {
+		right: 0;
+		left: auto;
+
+		width: 500px;
+	}
+}

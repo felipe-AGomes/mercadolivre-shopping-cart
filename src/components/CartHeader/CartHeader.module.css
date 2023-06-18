@@ -24,3 +24,13 @@
 	align-items: center;
 	justify-content: center;
 }
+
+@media (min-width: 700px) {
+	.header__contain .closeIcon__contain {
+		display: none;
+	}
+
+	.header__contain {
+		justify-content: center;
+	}
+}
