@@ -1,18 +1,28 @@
 .cart__contain {
 	position: fixed;
 	top: 100px;
-	left: 0;
+	right: 0;
 	width: 100%;
+	transform: translateX(100vw);
 	height: calc(100vh - 100px);
 	background: var(--background);
 	z-index: 2;
+	transition: 0.3s;
+}
+
+.cart__contain.active {
+	transform: translateX(0);
 }
 
 @media (min-width: 700px) {
 	.cart__contain {
 		right: 0;
 		left: auto;
-
+		transform: translateX(500px);
 		width: 500px;
+	}
+	
+	.cart__contain.active {
+		transform: translateX(0);
 	}
 }

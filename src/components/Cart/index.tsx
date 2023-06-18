@@ -3,9 +3,13 @@ import CartHeader from '../CartHeader';
 import CartGridProducts from '../CartGridProducts/incex';
 import CartFooter from '../CartFooter';
 
-export default function Cart() {
+type Props = {
+	className?: string;
+};
+
+export default function Cart({ className }: Props) {
 	return (
-		<div className={S.cart__contain}>
+		<div className={`${S.cart__contain} ${S[className ? className : '']}`}>
 			<CartHeader />
 			<CartGridProducts />
 			<CartFooter />

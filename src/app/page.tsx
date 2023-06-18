@@ -34,7 +34,7 @@ export default function Home() {
 			>
 				<GridProducts />
 				<CartFloat />
-				{cart && <Cart />}
+				<Cart className={cart ? 'active' : ''} />
 			</main>
 		</>
 	);
