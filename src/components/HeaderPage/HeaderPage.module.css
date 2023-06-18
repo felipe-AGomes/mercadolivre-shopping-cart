@@ -17,10 +17,7 @@
 }
 
 .header__contain .form__contain input {
-	flex-grow: 1;
-
 	height: 50px;
-	max-width: 280px;
 	width: calc(100% - 60px);
 	border: solid 1px var(--blue);
 	background: var(--background);
@@ -61,13 +58,17 @@
 }
 
 @media (min-width: 700px) {
-	.header__contain .cartIcon__contain {
-		display: flex;
-	}
-
 	.header__contain {
 		justify-content: space-between;
 
 		padding: 25px 40px;
+	}
+
+	.header__contain .form__contain input {
+		width: 400px;
+	}
+
+	.header__contain .cartIcon__contain {
+		display: flex;
 	}
 }
