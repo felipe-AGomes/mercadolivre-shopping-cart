@@ -22,7 +22,7 @@
 	justify-content: center;
 	flex-direction: column;
 	gap: 10px;
-
+	
 	color: var(--fontColor);
 }
 
@@ -40,9 +40,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-
+	
 	position: absolute;
 	top: 20px;
 	right: 20px;
 	color: var(--red);
+}
+
+@media (min-width: 1180px) {
+	.product__card {
+		max-width: 370px;
+	}
+	
 }

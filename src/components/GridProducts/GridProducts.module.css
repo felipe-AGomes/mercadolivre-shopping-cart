@@ -16,6 +16,13 @@
 		row-gap: 40px;
 		column-gap: 20px;
 
-		grid-template-columns: repeat(auto-fill, 300px);
+		grid-template-columns: repeat(auto-fill, 340px);
+	}
+}
+
+@media (min-width: 1180px) {
+	.products__contain {
+		grid-template-columns: repeat(auto-fill, 370px);
+		column-gap: 16px;
 	}
 }
