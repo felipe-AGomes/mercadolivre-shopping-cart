@@ -1,24 +1,19 @@
 /* eslint-disable @next/next/no-img-element */
 import { BsCartPlus } from 'react-icons/bs';
-import S from './ProductItem.module.css';
+
 import { ProductProps } from '@/@types';
-import useAppContext from '@/hooks/useAppContext';
-import { idGender } from '@/util/idGender';
 import { priceFormat } from '@/util/priceFormat';
+import useAddCartItem from '@/hooks/useAddCartItem';
+import S from './ProductItem.module.css';
 
 type Props = {
 	product: ProductProps;
 };
 
 export default function ProductItem({ product }: Props) {
-	const { setCartItems, cartItems } = useAppContext();
+	const { addItem } = useAddCartItem();
+
 	const image = product.thumbnail.replace(/-.\.jpg$/, '-W.jpg');
-
-	const handleClick = (product: ProductProps) => {
-		const idCart = idGender().createId(30);
-		setCartItems([...cartItems, { ...product, idCart }]);
-	};
-
 	const price = priceFormat(product.price);
 
 	return (
@@ -37,7 +32,7 @@ export default function ProductItem({ product }: Props) {
 				<BsCartPlus
 					size={28}
 					style={{ cursor: 'pointer' }}
-					onClick={() => handleClick(product)}
+					onClick={() => addItem(product)}
 				/>
 			</div>
 		</div>

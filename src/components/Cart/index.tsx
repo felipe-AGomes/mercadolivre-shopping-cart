@@ -1,9 +1,9 @@
-import S from './Cart.module.css';
 import CartHeader from '../CartHeader';
 import CartGridProducts from '../CartGridProducts/incex';
 import CartFooter from '../CartFooter';
 import useAppContext from '@/hooks/useAppContext';
 import CartEmpty from '../CartEmpty';
+import S from './Cart.module.css';
 
 type Props = {
 	className?: string;

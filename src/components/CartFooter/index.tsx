@@ -1,7 +1,7 @@
 import useAppContext from '@/hooks/useAppContext';
-import S from './CartFooter.module.css';
 import { ProductProps } from '@/@types';
 import { priceFormat } from '@/util/priceFormat';
+import S from './CartFooter.module.css';
 
 export default function CartFooter() {
 	const app = useAppContext();

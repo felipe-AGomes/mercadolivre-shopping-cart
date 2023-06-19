@@ -1,12 +1,12 @@
 import { HiOutlineSearch } from 'react-icons/hi';
-
-import S from './HeaderPage.module.css';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import CartNumber from '../CartNumber';
-import useAppContext from '@/hooks/useAppContext';
+
 import { useForm } from 'react-hook-form';
 import { SearchProductsInput } from '@/@types';
+import CartNumber from '../CartNumber';
+import useAppContext from '@/hooks/useAppContext';
 import useHandleSubmit from '@/hooks/useHandleSubmit';
+import S from './HeaderPage.module.css';
 
 export default function HeaderPage() {
 	const { register, handleSubmit, reset } = useForm<SearchProductsInput>({

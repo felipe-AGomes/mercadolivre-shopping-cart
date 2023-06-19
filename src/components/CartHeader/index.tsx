@@ -1,8 +1,8 @@
 'use client';
 import { AiOutlineCloseCircle } from 'react-icons/ai';
 
-import S from './CartHeader.module.css';
 import useAppContext from '@/hooks/useAppContext';
+import S from './CartHeader.module.css';
 
 export default function CartHeader() {
 	const { setCartIsOpen } = useAppContext();

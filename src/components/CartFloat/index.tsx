@@ -1,9 +1,9 @@
 'use client';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
-import S from './CartFloat.module.css';
 import useAppContext from '@/hooks/useAppContext';
 import CartNumber from '../CartNumber';
+import S from './CartFloat.module.css';
 
 export default function CartFloat() {
 	const { setCartIsOpen } = useAppContext();

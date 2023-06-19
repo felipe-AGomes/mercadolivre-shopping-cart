@@ -1,23 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import { BsCartDash } from 'react-icons/bs';
 
-import S from './CartProductItem.module.css';
 import { ProductProps } from '@/@types';
-import useAppContext from '@/hooks/useAppContext';
 import { priceFormat } from '@/util/priceFormat';
+import useAddCartItem from '@/hooks/useAddCartItem';
+import S from './CartProductItem.module.css';
 
 type Props = {
 	item: ProductProps;
 };
 
 export default function CartProductItem({ item }: Props) {
-	const { cartItems, setCartItems } = useAppContext();
-
+	const { removeItem } = useAddCartItem();
 	const image = item.thumbnail.replace(/-.\.jpg/, '-W.jpg');
-
-	const handleClick = (id: string) => {
-		setCartItems(cartItems.filter((item) => item.idCart !== id));
-	};
 
 	const price = priceFormat(item.price);
 
@@ -37,7 +32,7 @@ export default function CartProductItem({ item }: Props) {
 				<BsCartDash
 					size={28}
 					style={{ cursor: 'pointer' }}
-					onClick={() => handleClick(item.idCart ? item.idCart : '')}
+					onClick={() => removeItem(item.idCart ? item.idCart : '')}
 				/>
 			</div>
 		</div>
