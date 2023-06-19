@@ -3,6 +3,8 @@ import { BsCartPlus } from 'react-icons/bs';
 import S from './ProductItem.module.css';
 import { ProductProps } from '@/@types';
 import useAppContext from '@/hooks/useAppContext';
+import { idGender } from '@/util/idGender';
+import { priceFormat } from '@/util/priceFormat';
 
 type Props = {
 	product: ProductProps;
@@ -13,11 +15,11 @@ export default function ProductItem({ product }: Props) {
 	const image = product.thumbnail.replace(/-.\.jpg$/, '-W.jpg');
 
 	const handleClick = (product: ProductProps) => {
-		setCartItems([
-			...cartItems,
-			{ ...product, idCart: cartItems.length.toString() },
-		]);
+		const idCart = idGender().createId(30);
+		setCartItems([...cartItems, { ...product, idCart }]);
 	};
+
+	const price = priceFormat(product.price);
 
 	return (
 		<div className={S.product__card}>
@@ -28,7 +30,7 @@ export default function ProductItem({ product }: Props) {
 				/>
 			</div>
 			<div className={S.description__contain}>
-				<p>R$ {product.price},00</p>
+				<p>{price}</p>
 				<h2>{product.title}</h2>
 			</div>
 			<div className={S.cartIcon}>

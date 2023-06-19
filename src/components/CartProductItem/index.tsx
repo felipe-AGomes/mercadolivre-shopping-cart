@@ -4,6 +4,7 @@ import { BsCartDash } from 'react-icons/bs';
 import S from './CartProductItem.module.css';
 import { ProductProps } from '@/@types';
 import useAppContext from '@/hooks/useAppContext';
+import { priceFormat } from '@/util/priceFormat';
 
 type Props = {
 	item: ProductProps;
@@ -18,6 +19,8 @@ export default function CartProductItem({ item }: Props) {
 		setCartItems(cartItems.filter((item) => item.idCart !== id));
 	};
 
+	const price = priceFormat(item.price);
+
 	return (
 		<div className={S.cartItem__contain}>
 			<div className={S.image__contain}>
@@ -27,7 +30,7 @@ export default function CartProductItem({ item }: Props) {
 				/>
 			</div>
 			<div className={S.description__contain}>
-				<p>R$ {item.price},00</p>
+				<p>{price}</p>
 				<h4>{item.title}</h4>
 			</div>
 			<div className={S.cartIcon}>

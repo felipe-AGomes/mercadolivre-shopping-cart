@@ -1,0 +1,13 @@
+.emptyCart__contain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 100%;
+	height: 100%;
+}
+
+.emptyCart__contain h3 {
+	font-size: 2rem;
+	font-weight: 400;
+}

@@ -1,6 +1,7 @@
 import useAppContext from '@/hooks/useAppContext';
 import S from './CartFooter.module.css';
 import { ProductProps } from '@/@types';
+import { priceFormat } from '@/util/priceFormat';
 
 export default function CartFooter() {
 	const app = useAppContext();
@@ -11,9 +12,11 @@ export default function CartFooter() {
 		return prev + curr.price;
 	}, 0);
 
+	const price = priceFormat(totalValue);
+
 	return (
 		<footer className={S.footer__contain}>
-			<p>R$ {totalValue},00</p>
+			<p>{price}</p>
 		</footer>
 	);
 }
