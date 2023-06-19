@@ -9,12 +9,12 @@ export default function CartFloat() {
 	const { setCartIsOpen } = useAppContext();
 
 	return (
-		<div className={S.cartFloat__contain}>
+		<div
+			className={S.cartFloat__contain}
+			onClick={() => setCartIsOpen(true)}
+		>
 			<div className={S.cart}>
-				<AiOutlineShoppingCart
-					size={28}
-					onClick={() => setCartIsOpen(true)}
-				/>
+				<AiOutlineShoppingCart size={28} />
 			</div>
 			<CartNumber style={{ background: 'var(--blue)' }} />
 		</div>
