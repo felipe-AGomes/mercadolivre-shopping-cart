@@ -1,7 +1,7 @@
 'use client';
 
 import { ProductProps } from '@/@types';
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 
 type Props = {
 	children: React.ReactNode;
@@ -51,6 +51,10 @@ export default function AppContextProvider({ children }: Props) {
 	const [products, setProducts] = useState<ApiResponse | null>(null);
 	const [cartItems, setCartItems] = useState<ProductProps[] | []>([]);
 	const [currentQuery, setCurrentQuery] = useState<string>('');
+
+	useEffect(() => {
+		setWindowWidth(window.innerWidth);
+	});
 
 	return (
 		<AppContext.Provider
