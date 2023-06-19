@@ -5,11 +5,10 @@
 
 	position: relative;
 	background: var(--background);
-	padding: 0 50px;
 	border: solid 1px var(--blue);
 	height: 50px;
 	border-radius: 10px;
-	cursor: pointer;
+	transition: 0.2s;
 }
 
 .sort__contain.active {
@@ -17,7 +16,17 @@
 	border-bottom-right-radius: 0;
 }
 
-.sort__contain h3 {
+.sort__contain .sortHeader__contain {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	height: 100%;
+	padding: 0 50px;
+}
+
+.sort__contain .sortHeader__contain h3 {
 	font-size: 1rem;
 	font-weight: 500;
 	white-space: nowrap;
@@ -31,11 +40,11 @@
 
 	position: absolute;
 	top: 50px;
-	width: max-content;
 	background: inherit;
 	border-top: solid 1px var(--blue);
 	padding-top: 20px;
 	width: 100%;
+	height: 0px;
 	opacity: 0;
 	overflow: hidden;
 	transition: 0.2s;
@@ -44,14 +53,20 @@
 }
 
 .sort__contain ul.active {
+	display: flex;
 	height: auto;
 	opacity: 1;
 }
 
 .sort__contain ul li {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
 	font-size: 1rem;
 	font-weight: 500;
 	list-style: none;
 	margin-bottom: 20px;
 	cursor: pointer;
+	width: 100%;
 }

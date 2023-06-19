@@ -13,25 +13,32 @@ export default function Filter() {
 	};
 
 	return (
-		<div
-			className={`${S.sort__contain} ${filterOpen ? S.active : ''}`}
-			onClick={handleFilterOpen}
-		>
-			<h3>Filtros: {products?.sort ? products.sort.name : ''}</h3>
-			{products?.available_sorts && (
-				<ul className={`${filterOpen ? S.active : ''}`}>
-					{products.available_sorts.map((sort) => {
-						return (
-							<li
-								key={sort.id}
-								onClick={() => addSort(sort.id)}
-							>
-								{sort.name}
-							</li>
-						);
-					})}
-				</ul>
+		<>
+			{products && (
+				<div className={`${S.sort__contain} ${filterOpen ? S.active : ''}`}>
+					<div 
+					className={S.sortHeader__contain}
+					onClick={handleFilterOpen}>
+						<h3>{products?.sort ? `Ordenar: ${products.sort.name}` : ''}</h3>
+					</div>
+					<>
+						{products?.available_sorts && (
+							<ul className={`${filterOpen ? S.active : ''}`}>
+								{products.available_sorts.map((sort) => {
+									return (
+										<li
+											key={sort.id}
+											onClick={() => addSort(sort.id)}
+										>
+											{sort.name}
+										</li>
+									);
+								})}
+							</ul>
+						)}
+					</>
+				</div>
 			)}
-		</div>
+		</>
 	);
 }
