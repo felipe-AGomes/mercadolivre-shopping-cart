@@ -1,3 +1,4 @@
+'use client';
 import { HiOutlineSearch } from 'react-icons/hi';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 
@@ -7,17 +8,23 @@ import CartNumber from '../CartNumber';
 import useAppContext from '@/hooks/useAppContext';
 import useHandleSubmit from '@/hooks/useHandleSubmit';
 import S from './HeaderPage.module.css';
+import { useState } from 'react';
 
 export default function HeaderPage() {
 	const { register, handleSubmit, reset } = useForm<SearchProductsInput>({
 		defaultValues: { query: '' },
 	});
-	const { searchProductsSubmit } = useHandleSubmit();
-	const { cartIsOpen, setCartIsOpen } = useAppContext();
+	const { searchProductsSubmit, addSort } = useHandleSubmit();
+	const { cartIsOpen, products, setCartIsOpen } = useAppContext();
+	const [filterOpen, setFilterOpen] = useState(false);
 
 	const onSubmit = (data: SearchProductsInput) => {
 		searchProductsSubmit(data);
 		reset();
+	};
+
+	const handleFilterOpen = () => {
+		setFilterOpen(!filterOpen);
 	};
 
 	return (
@@ -35,6 +42,27 @@ export default function HeaderPage() {
 				<button type='submit'>
 					<HiOutlineSearch size={28} />
 				</button>
+
+				<div
+					className={S.sort__contain}
+					onClick={handleFilterOpen}
+				>
+					<h3>Filtros: {products?.sort ? products.sort.name : 'Filtros'}</h3>
+					{products?.available_sorts && filterOpen && (
+						<ul>
+							{products.available_sorts.map((sort) => {
+								return (
+									<li
+										key={sort.id}
+										onClick={() => addSort(sort.id)}
+									>
+										{sort.name}
+									</li>
+								);
+							})}
+						</ul>
+					)}
+				</div>
 			</form>
 			<div
 				className={`${S.cartIcon__contain} ${cartIsOpen ? S.active : ''}`}

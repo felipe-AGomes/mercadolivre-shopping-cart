@@ -7,13 +7,27 @@ type Props = {
 	children: React.ReactNode;
 };
 
+type ApiResponse = {
+	site_id: string;
+	country_default_time_zone: string;
+	query: string;
+	paging: any;
+	results: ProductProps[];
+	sort: Record<string, string>;
+	available_sorts: [Record<string, string>];
+	filters: [Record<string, string>];
+	available_filters: [Record<string, string>];
+};
+
 type AppContextProps = {
 	cartItems: ProductProps[] | [];
 	cartIsOpen: boolean;
 	windowWIdth: number;
-	products: ProductProps[] | [];
+	currentQuery: string;
+	products: ApiResponse | null;
+	setCurrentQuery: (newValue: string) => void;
 	setCartItems: (newValue: ProductProps[] | []) => void;
-	setProducts: (newValue: ProductProps[] | []) => void;
+	setProducts: (newValue: ApiResponse | null) => void;
 	setWindowWidth: (newValue: number) => void;
 	setCartIsOpen: (newValue: boolean) => void;
 };
@@ -21,8 +35,10 @@ type AppContextProps = {
 export const AppContext = createContext<AppContextProps>({
 	cartIsOpen: false,
 	windowWIdth: 0,
-	products: [],
+	products: null,
 	cartItems: [],
+	currentQuery: '',
+	setCurrentQuery() {},
 	setCartItems() {},
 	setProducts() {},
 	setCartIsOpen() {},
@@ -32,8 +48,9 @@ export const AppContext = createContext<AppContextProps>({
 export default function AppContextProvider({ children }: Props) {
 	const [cartIsOpen, setCartIsOpen] = useState(false);
 	const [windowWIdth, setWindowWidth] = useState<number>(0);
-	const [products, setProducts] = useState<ProductProps[] | []>([]);
+	const [products, setProducts] = useState<ApiResponse | null>(null);
 	const [cartItems, setCartItems] = useState<ProductProps[] | []>([]);
+	const [currentQuery, setCurrentQuery] = useState<string>('');
 
 	return (
 		<AppContext.Provider
@@ -42,6 +59,8 @@ export default function AppContextProvider({ children }: Props) {
 				cartIsOpen,
 				windowWIdth,
 				products,
+				currentQuery,
+				setCurrentQuery,
 				setCartItems,
 				setCartIsOpen,
 				setWindowWidth,
