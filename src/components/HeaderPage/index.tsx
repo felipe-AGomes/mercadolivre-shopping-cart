@@ -9,22 +9,18 @@ import useAppContext from '@/hooks/useAppContext';
 import useHandleSubmit from '@/hooks/useHandleSubmit';
 import S from './HeaderPage.module.css';
 import { useState } from 'react';
+import Filter from '../Filter';
 
 export default function HeaderPage() {
 	const { register, handleSubmit, reset } = useForm<SearchProductsInput>({
 		defaultValues: { query: '' },
 	});
-	const { searchProductsSubmit, addSort } = useHandleSubmit();
-	const { cartIsOpen, products, setCartIsOpen } = useAppContext();
-	const [filterOpen, setFilterOpen] = useState(false);
+	const { searchProductsSubmit } = useHandleSubmit();
+	const { cartIsOpen, setCartIsOpen } = useAppContext();
 
 	const onSubmit = (data: SearchProductsInput) => {
 		searchProductsSubmit(data);
 		reset();
-	};
-
-	const handleFilterOpen = () => {
-		setFilterOpen(!filterOpen);
 	};
 
 	return (
@@ -43,26 +39,7 @@ export default function HeaderPage() {
 					<HiOutlineSearch size={28} />
 				</button>
 
-				<div
-					className={S.sort__contain}
-					onClick={handleFilterOpen}
-				>
-					<h3>Filtros: {products?.sort ? products.sort.name : 'Filtros'}</h3>
-					{products?.available_sorts && filterOpen && (
-						<ul>
-							{products.available_sorts.map((sort) => {
-								return (
-									<li
-										key={sort.id}
-										onClick={() => addSort(sort.id)}
-									>
-										{sort.name}
-									</li>
-								);
-							})}
-						</ul>
-					)}
-				</div>
+				<Filter />
 			</form>
 			<div
 				className={`${S.cartIcon__contain} ${cartIsOpen ? S.active : ''}`}

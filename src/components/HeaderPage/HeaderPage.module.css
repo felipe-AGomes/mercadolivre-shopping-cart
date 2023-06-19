@@ -61,49 +61,6 @@
 	border: solid 1px var(--blue);
 }
 
-.sort__contain {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-
-	position: relative;
-	background: var(--background);
-	padding: 0 50px;
-	border: solid 1px var(--blue);
-	height: 50px;
-	border-radius: 10px;
-	cursor: pointer;
-}
-
-.sort__contain h3 {
-	font-size: 1rem;
-	font-weight: 500;
-	white-space: nowrap;
-}
-
-.sort__contain ul {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-direction: column;
-
-	position: absolute;
-	top: 50px;
-	width: max-content;
-	background: inherit;
-	border-top: solid 1px var(--blue);
-	padding-top: 20px;
-	width: 100%;
-}
-
-.sort__contain ul li {
-	font-size: 1rem;
-	font-weight: 500;
-	list-style: none;
-	margin-bottom: 20px;
-	cursor: pointer;
-}
-
 @media (min-width: 700px) {
 	.header__contain {
 		justify-content: space-between;
